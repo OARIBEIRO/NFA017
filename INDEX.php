@@ -46,17 +46,20 @@
             <input type="text" name="nom" value="<?php if (isset($nom)) {echo $nom;} ?>">
             <br/>
             <label name="mail">Adresse mail</label>
-            <input type="mail" name="mail" value="<?php if (isset($mail)) {echo $mail;} ?>">>
+            <input type="mail" name="mail" value="<?php if (isset($mail)) {echo $mail;} ?>">
             <?php
               if (isset($erreurs) && array_key_exists('mail', $erreurs)) {
                 echo $erreurs['mail'];
 
               }
-              if (preg_match('#^[\w.-]+@[\w.-]+\.[a-z]{2,6}$#i', $mail)) {
-                echo 'Cet email est correct.';
-              } else {
-                  echo 'Cet email a un format non adapté.';
+              if (isset($mail)) {
+                if (preg_match('#^[\w.-]+@[\w.-]+\.[a-z]{2,6}$#i', $mail)) {
+                  echo 'Cet email est correct.';
+                } else {
+                    echo 'Cet email a un format non adapté.';
+                }
               }
+
              ?>
             <br/>
             <label name="objet">Objet</label>
