@@ -28,6 +28,7 @@
       $to = "ribeirooscaralex@gmail.com";
       $header = "From : " .$mail;
       mail($to, $objet, $message, $header);
+      echo "Le mail a bien été envoyé";
     }
   }
 
